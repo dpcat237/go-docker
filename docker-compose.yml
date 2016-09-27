@@ -1,0 +1,6 @@
+application:
+  build: application
+  volumes:
+    - ./apps:/usr/local/go/apps
+  environment:
+    TERM: xterm
