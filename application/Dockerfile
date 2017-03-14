@@ -55,7 +55,9 @@ RUN chown -R www-data:www-data /usr/local/go/src
 RUN echo www-data:wwwpwd | chpasswd
 
 COPY go-wrapper /usr/local/bin/
-COPY Docker/copy/ /
+COPY Docker/copy/root/.oh-my-zsh /root/.oh-my-zsh
+COPY Docker/copy/root/.ssh       /root/.ssh
+#COPY Docker/copy/root/.zshrc     /root/.zshrc
 
 #Upgrade
 #RUN apt-get update && apt-get upgrade -y

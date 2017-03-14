@@ -1,2 +1,4 @@
 src/*
 mariadb/*
+application/Docker/copy/root/.ssh/id_rsa
+application/Docker/copy/root/.ssh/id_rsa.pub
