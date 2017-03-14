@@ -1,6 +1,21 @@
 application:
   build: application
+  links:
+    - dbcontainer
   volumes:
-    - ./apps:/usr/local/go/apps
+    - ./src:/usr/local/go/src
   environment:
     TERM: xterm
+
+dbcontainer:
+  image: mariadb
+  command: mysqld --innodb-buffer-pool-size=20M
+  volumes:
+    - "./mariadb:/var/lib/mysql:rw"
+  environment:
+    - "MYSQL_DATABASE=tidinio"
+    - "MYSQL_USER=tidinio"
+    - "MYSQL_PASSWORD=pwd"
+    - "MYSQL_ROOT_PASSWORD=root"
+  ports:
+    - "3306:3306"
